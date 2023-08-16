@@ -14,8 +14,8 @@ document.body.appendChild(renderer.domElement);
 // --------------------------
 // Initialise objects
 // --------------------------
-const ambientLight = new THREE.AmbientLight(0x996515);
-ambientLight.intensity = 10;
+const ambientLight = new THREE.AmbientLight(0x00FF00);
+ambientLight.intensity = 0.3;
 ambientLight.position.set(0, 5, 0);
 
 const rectLight1 = new THREE.RectAreaLight(0xFFFFFF, 2, 10, 10);
