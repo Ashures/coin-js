@@ -14,6 +14,10 @@ document.body.appendChild(renderer.domElement);
 // --------------------------
 // Initialise objects
 // --------------------------
+const ambientLight = new THREE.AmbientLight(0x996515);
+ambientLight.intensity = 10;
+ambientLight.position.set(0, 5, 0);
+
 const rectLight1 = new THREE.RectAreaLight(0xFFFFFF, 2, 10, 10);
 rectLight1.position.set(0, 0, -5);
 rectLight1.lookAt(0, 0, 0);
@@ -29,14 +33,29 @@ rectLight3.lookAt(0, 0, 0);
 scene.add(rectLight1);
 scene.add(rectLight2);
 scene.add(rectLight3);
+scene.add(ambientLight);
 
 const meshLoader = new GLTFLoader();
-let coin;
 
-meshLoader.load( 'meshes/coin.glb', function ( gltf ) {
+// let coin;
+// meshLoader.load( 'meshes/coin.glb', function ( gltf ) {
 
-    coin = gltf.scene.children[0];
-    coin.rotation.x = Math.PI / 3;
+//     coin = gltf.scene.children[0];
+//     coin.rotation.x = Math.PI / 3;
+    
+// 	scene.add( gltf.scene );
+
+// }, undefined, function ( error ) {
+
+// 	console.error( error );
+
+// } );
+
+let pc;
+meshLoader.load( 'meshes/pc.gltf', function ( gltf ) {
+
+    pc = gltf.scene.children[0];
+    pc.position.y -= 0.2;
     
 	scene.add( gltf.scene );
 
@@ -51,7 +70,7 @@ meshLoader.load( 'meshes/coin.glb', function ( gltf ) {
 // const cube = new THREE.Mesh(geometry, material);
 // scene.add(cube);
 
-camera.position.z = 3;
+camera.position.z = 0.7;
 
 // --------------------------
 // Rendering
@@ -65,8 +84,9 @@ function animate() {
     // cube.rotation.z += 0.01;
 
     // coin.rotation.x += 0.01;
-    coin.rotation.y += 0.01;
-    coin.rotation.z += 0.01;
+    // coin.rotation.z += 0.01;
+
+    pc.rotation.y += 0.01;
 
     // Update screen
     camera.aspect = window.innerWidth / window.innerHeight;
