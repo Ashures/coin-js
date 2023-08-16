@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz@9..40&family=Josefin+Sans:wght@200&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+.main {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    user-select: none;
+}
+
+.main #threejs-title h1 {
+    margin-top: 0;
+    color: #DD0;
+    position: relative;
+    text-transform: uppercase;
+    font: bold 7rem 'DM Sans', sans-serif;
+}
